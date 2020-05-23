@@ -15,33 +15,38 @@
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\x64\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ModLib.Definitions">
+      <HintPath>$(MODLIB_DEFINITIONS_PATH)</HintPath>
+    </Reference>
     <Reference Include="ModLib">
       <HintPath>$(BannerlordPath)\Modules\ModLib\bin\Win64_Shipping_Client\ModLib.dll</HintPath>
     </Reference>
     <Reference Include="ModLib.Patches">
       <HintPath>$(BannerlordPath)\Modules\ModLib\bin\Win64_Shipping_Client\ModLib.Patches.dll</HintPath>
+    </Reference>
+    <Reference Include="TaleWorlds.ObjectSystem">
+      <HintPath>$(MOUNT_AND_BLADE_DIR)\bin\Win64_Shipping_Client\TaleWorlds.ObjectSystem.dll</HintPath>
     </Reference>
     <Reference Include="SandBox">
       <HintPath>$(BannerlordPath)\Modules\SandBox\bin\Win64_Shipping_Client\SandBox.dll</HintPath>
@@ -214,6 +219,9 @@
     <Reference Include="TaleWorlds.TwoDimension.Standalone">
       <HintPath>$(BannerlordPath)\bin\Win64_Shipping_Client\TaleWorlds.TwoDimension.Standalone.dll</HintPath>
     </Reference>
+    <Reference Include="TaleWorlds.ObjectSystem">
+      <HintPath>$(MOUNT_AND_BLADE_DIR)bin\Win64_Shipping_Client\TaleWorlds.ObjectSystem.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Lib.Harmony" Version="2.0.0.9" />
@@ -224,40 +232,64 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DailyTroopExperienceTweak.cs" />
+    <Compile Include="DismembermentMissionBehaviour.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Patches\CampaignUIHelperPatch.cs" />
+    <Compile Include="Patches\CharacterAttributeItemVMPatch.cs" />
+    <Compile Include="Patches\CharacterDevelopmentCampaignBehaivorPatch.cs" />
+    <Compile Include="Patches\CharacterVMPatch.cs" />
     <Compile Include="Patches\CraftingCampaignBehaviourPatches.cs" />
     <Compile Include="Patches\CraftingVMPatch.cs" />
     <Compile Include="Patches\DefaultBattleRewardModelPatch.cs" />
     <Compile Include="Patches\DefaultBuildingTypesPatch.cs" />
     <Compile Include="Patches\DefaultPartyMoraleModelPatches.cs" />
     <Compile Include="Patches\DefaultPartySizeLimitModelPatch.cs" />
+    <Compile Include="Patches\DefaultCaravanPartySizeLimitModelPatch.cs" />
     <Compile Include="Patches\DefaultTournamentModelPatch.cs" />
     <Compile Include="Patches\DefaultTroopCountLimitModelPatch.cs" />
     <Compile Include="Patches\HeroPatches.cs" />
     <Compile Include="Patches\HideoutMissionControllerPatches.cs" />
     <Compile Include="Patches\MapInfoVMPatch.cs" />
+    <Compile Include="Patches\SkillVMPatch.cs" />
     <Compile Include="Patches\SmeltingVMPatches.cs" />
     <Compile Include="Patches\TournamentVMPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SubModule.cs" />
-    <Compile Include="Patches\TournamentBehaviourPatch.cs" />
+    <Compile Include="Patches\TournamentBehaviorPatches.cs" />
+    <Compile Include="TweakedCharacterDevelopmentModel.cs" />
     <Compile Include="TweakedClanTierModel.cs" />
     <Compile Include="TweakedCombatXpModel.cs" />
+    <Compile Include="TweakedAgeModel.cs" />
+    <Compile Include="TweakedPregnancyModel.cs" />
     <Compile Include="TweakedSettlementFoodModel.cs" />
     <Compile Include="TweakedSettlementMilitiaModel.cs" />
     <Compile Include="TweakedSiegeEventModel.cs" />
     <Compile Include="TweakedWorkshopModel.cs" />
+    <Compile Include="PrisonerImprisonmentTweak.cs" />
+    <Compile Include="Patches\WeaponComponentDataPatch.cs" />
+    <Compile Include="TweakedDifficultyModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Contributions.txt" />
     <Content Include="SubModule.xml" />
+    <Content Include="README.md" />
+    <Content Include="LICENSE" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">
+    <ItemGroup>
+      <_ReadMe Include="$(ProjectDir)README.md" />
+      <_LICENSE Include="$(ProjectDir)LICENSE" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_ReadMe)" DestinationFolder="$(MOD_FOLDER)" />
+    <Copy SourceFiles="@(_LICENSE)" DestinationFolder="$(MOD_FOLDER)" />
     <Copy SourceFiles="$(TargetDir)\0Harmony.dll" DestinationFolder="$(MOD_FOLDER)\bin\Win64_Shipping_Client\" />
+    <Copy SourceFiles="$(TargetDir)\ModLib.Definitions.dll" DestinationFolder="$(MOD_FOLDER)\bin\Win64_Shipping_Client\" />
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(MOD_FOLDER)\bin\Win64_Shipping_Client\" />
     <Copy SourceFiles="$(ProjectDir)\SubModule.xml" DestinationFolder="$(MOD_FOLDER)" />
   </Target>
