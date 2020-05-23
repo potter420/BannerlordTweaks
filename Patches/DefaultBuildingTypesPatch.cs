@@ -1,5 +1,5 @@
 ﻿using HarmonyLib;
-using System.Collections.Generic;
+using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Localization;
 
@@ -22,17 +22,11 @@ namespace BannerlordTweaks.Patches
                         52,
                         65
                     },
-                    BuildingLocation.Castle, new Dictionary<BuildingEffect, IReadOnlyList<int>>
-                    {
-                    {
-                        DefaultBuildingEffects.Experience,
-                        new List<int>
-                        {
-                            Settings.Instance.CastleTrainingFieldsXpAmountLevel1,
-                            Settings.Instance.CastleTrainingFieldsXpAmountLevel2,
-                            Settings.Instance.CastleTrainingFieldsXpAmountLevel3
-                        }
-                    }
+                    BuildingLocation.Castle, new Tuple<BuildingEffectEnum, int, int, int>[1]{
+                        new Tuple<BuildingEffectEnum, int, int, int>(BuildingEffectEnum.Experience,
+                        Settings.Instance.CastleTrainingFieldsXpAmountLevel1,
+                        Settings.Instance.CastleTrainingFieldsXpAmountLevel2,
+                        Settings.Instance.CastleTrainingFieldsXpAmountLevel3)
                     });
             }
             #endregion
@@ -45,17 +39,11 @@ namespace BannerlordTweaks.Patches
                         65,
                         91
                     },
-                    BuildingLocation.Castle, new Dictionary<BuildingEffect, IReadOnlyList<int>>
-                    {
-                        {
-                            DefaultBuildingEffects.FoodStock,
-                            new List<int>
-                            {
-                                Settings.Instance.CastleGranaryStorageAmountLevel1,
-                                Settings.Instance.CastleGranaryStorageAmountLevel2,
-                                Settings.Instance.CastleGranaryStorageAmountLevel3
-                            }
-                        }
+                    BuildingLocation.Castle, new Tuple<BuildingEffectEnum, int, int, int>[1]{
+                        new Tuple<BuildingEffectEnum, int, int, int>(BuildingEffectEnum.Foodstock,
+                        Settings.Instance.CastleGranaryStorageAmountLevel1,
+                        Settings.Instance.CastleGranaryStorageAmountLevel2,
+                        Settings.Instance.CastleGranaryStorageAmountLevel3)
                     });
             }
             #endregion
@@ -69,17 +57,14 @@ namespace BannerlordTweaks.Patches
                         25,
                         39,
                         52
-                    }, BuildingLocation.Castle, new Dictionary<BuildingEffect, IReadOnlyList<int>>
+                    }, BuildingLocation.Castle, new Tuple<BuildingEffectEnum, int, int, int>[1]
                     {
-                    {
-                        DefaultBuildingEffects.FoodProduction,
-                        new List<int>
-                        {
+                        new Tuple<BuildingEffectEnum, int, int, int>(
+                            BuildingEffectEnum.FoodProduction,
                             Settings.Instance.CastleGardensFoodProductionAmountLevel1,
                             Settings.Instance.CastleGardensFoodProductionAmountLevel2,
                             Settings.Instance.CastleGardensFoodProductionAmountLevel3
-                        }
-                    }
+                        )
                     });
             }
             #endregion
@@ -93,17 +78,14 @@ namespace BannerlordTweaks.Patches
                         46,
                         59,
                         72
-                    }, BuildingLocation.Castle, new Dictionary<BuildingEffect, IReadOnlyList<int>>
+                    }, BuildingLocation.Castle, new Tuple<BuildingEffectEnum, int, int, int>[1]
                     {
-                        {
-                            DefaultBuildingEffects.Militia,
-                            new List<int>
-                            {
-                                Settings.Instance.CastleMilitiaBarracksAmountLevel1,
-                                Settings.Instance.CastleMilitiaBarracksAmountLevel2,
-                                Settings.Instance.CastleMilitiaBarracksAmountLevel3
-                            }
-                        }
+                        new Tuple<BuildingEffectEnum, int, int, int>(
+                            BuildingEffectEnum.Militia,
+                            Settings.Instance.CastleMilitiaBarracksAmountLevel1,
+                            Settings.Instance.CastleMilitiaBarracksAmountLevel2,
+                            Settings.Instance.CastleMilitiaBarracksAmountLevel3
+                        )
                     });
             }
             #endregion

@@ -15,9 +15,10 @@ namespace BannerlordTweaks.Patches
     {
         private static MethodInfo openPartMethodInfo;
 
-        static void Postfix(CraftingCampaignBehavior __instance, ItemObject item)
+        static void Postfix(CraftingCampaignBehavior __instance, EquipmentElement equipmentElement)
         {
-            if (item == null) return;
+            if (equipmentElement.Item == null) return;
+            ItemObject item = equipmentElement.Item;
             if (__instance == null) throw new ArgumentNullException(nameof(__instance), $"Tried to run postfix for {nameof(CraftingCampaignBehavior)}.DoSmelting but the instance was null.");
             if (openPartMethodInfo == null) GetMethodInfo();
             foreach (CraftingPiece piece in SmeltingHelper.GetNewPartsFromSmelting(item))

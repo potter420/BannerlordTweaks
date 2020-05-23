@@ -157,7 +157,7 @@ namespace BannerlordTweaks
         // [SettingPropertyGroup("Hero Skill Experience Tweak")]
         //public bool HeroSkillExperienceOverrideMultiplierEnabled { get; set; } = false;
         [XmlElement]
-        [SettingProperty("Hero Skill Experience Multiplier", 1f, 5f, "Applies a multiplier to the amount of experience recieved for skills. Affects the player only.")]
+        [SettingProperty("Hero Skill Experience Multiplier", 1f, 500f, "Applies a multiplier to the amount of experience recieved for skills. Affects the player only.")]
         [SettingPropertyGroup("Hero Skill Experience Multiplier")]
         public float HeroSkillExperienceMultiplier { get; set; } = 1f;
         #endregion
