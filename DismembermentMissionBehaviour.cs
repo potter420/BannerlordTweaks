@@ -48,9 +48,9 @@ namespace BannerlordTweaks
             SetSkeletonParts(victim.AgentVisuals.GetSkeleton(), false);
             MakeDead(bodyPartAgent, attacker);
             bodyPartAgent.AgentVisuals.GetEntity().ActivateRagdoll();
-
-            if (isPlayerAttacker && Settings.Instance.ReportPlayerDecapitatedSomeoneEnabled)
-                ReportDismemberment(victim, bodyPart);
+            //TODO:: Add blood spurt
+            //if (isPlayerAttacker && Settings.Instance.ReportPlayerDecapitatedSomeoneEnabled)
+            //    ReportDismemberment(victim, bodyPart);
         }
 
         private static void MakeDead(Agent victim, Agent attacker)
@@ -115,9 +115,9 @@ namespace BannerlordTweaks
                 isPlayerAttacker = true;
                 return true;
             }
-            if (Settings.Instance.AICanDecapitate)
+            //if (Settings.Instance.AICanDecapitate)
                 return true;
-            return false;
+            //return false;
         }
 
         private bool IsValidVictim(Agent victim)
