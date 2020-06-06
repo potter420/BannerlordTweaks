@@ -26,4 +26,25 @@
 			</Tags>
 		</SubModule>
 	</SubModules>
+  <Xmls>
+    <XmlNode>
+      <XmlName id="CraftingPieces" path="new_recipe"/>
+      <IncludedGameTypes>
+        <GameType value="Campaign"/>
+        <GameType value="CampaignStoryMode"/>
+        <GameType value="CustomGame"/>
+      </IncludedGameTypes>
+    </XmlNode>
+    <XmlNode>
+      <XmlName id="CraftingTemplates" path="new_templates"/>
+    </XmlNode>
+    <XmlNode>
+      <XmlName id="Items" path="new_item"/>
+      <IncludedGameTypes>
+        <GameType value="Campaign"/>
+        <GameType value="CampaignStoryMode"/>
+        <GameType value="CustomGame"/>
+      </IncludedGameTypes>
+    </XmlNode>
+  </Xmls>
 </Module>
