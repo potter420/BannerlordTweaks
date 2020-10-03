@@ -110,7 +110,7 @@ namespace BannerlordTweaks.Patches
         }
     }
     // Change perk parameters
-    [HarmonyPatch(typeof(DefaultPerks), "InitializePerks")]
+/*    [HarmonyPatch(typeof(DefaultPerks), "InitializePerks")]
     public class PerkMechanicChangePatch
     {
         public static void Postfix(DefaultPerks __instance)
@@ -136,7 +136,7 @@ namespace BannerlordTweaks.Patches
         PerkObject AthleticsEndurance = (PerkObject)skillInstance.GetValue(__instance);
         AthleticsDexterous.Initialize("{=aEWuaOgQ}Dexterous", "{=gd5HkorH}+30% movement speed.", DefaultSkills.Athletics, _tierSkillRequirements[3-1], AthleticsEndurance, SkillEffect.PerkRole.PartyMember, 0.03f, SkillEffect.PerkRole.None, 0f, SkillEffect.EffectIncrementType.AddFactor);
         }
-    }
+    }*/
     // Apply god mode
     [HarmonyPatch(typeof(SandboxAgentStatCalculateModel), "UpdateHumanStats")]
     public class AgentStatCalculateModelPatch

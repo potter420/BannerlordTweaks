@@ -2,6 +2,7 @@
 using ModLib.Definitions;
 using System.Xml.Serialization;
 
+
 namespace BannerlordTweaks
 {
     public class Settings : SettingsBase
@@ -707,8 +708,8 @@ namespace BannerlordTweaks
         public bool SingleHandedWeaponsSliceThroughEnabled { get; set; } = false;
         #endregion
 
-        #region Battle Size Tweak
-        [XmlElement]
+        //#region Battle Size Tweak
+/*        [XmlElement]
         [SettingProperty("Battle Size Tweak", "Allows you to set the battle size limit outside of native values. WARNING: Setting this above 1000 can cause performance degradation and crashes.")]
         [SettingPropertyGroup("Battle Size Tweak", true)]
         public bool BattleSizeTweakEnabled { get; set; } = false;
@@ -716,9 +717,9 @@ namespace BannerlordTweaks
         [SettingProperty("Battle Size Limit", 2, 1300, "Sets the limit for number of troops on a battlefield. WARNING: Setting this above 1000 can cause performance degradation and crashes.")]
         [SettingPropertyGroup("Battle Size Tweak")]
         public int BattleSize { get; set; } = 1000;
-        #endregion
+        #endregion*/
 
-        #region Decapitation
+        //#region Decapitation
         //[XmlElement]
         //[SettingProperty("Decapitation Enabled", "Allows the decapitation of people.")]
         //[SettingPropertyGroup("Decapitation", true)]
@@ -731,6 +732,6 @@ namespace BannerlordTweaks
         //[SettingProperty("AI Can Decapitate", "Allows AI characters to decapitate people. Note: This can cause performance loss in big battles.")]
         //[SettingPropertyGroup("Decapitation")]
         //public bool AICanDecapitate { get; set; } = false;
-        #endregion
+        //#endregion
     }
 }

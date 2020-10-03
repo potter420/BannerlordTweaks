@@ -37,13 +37,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ModLib.Definitions">
-      <HintPath>$(MODLIB_DEFINITIONS_PATH)</HintPath>
+      <HintPath>$(BannerlordPath)\Modules\Bannerlord.MBOptionScreen.ModLib\bin\Win64_Shipping_Client\ModLib.Definitions.dll</HintPath>
     </Reference>
-    <Reference Include="ModLib">
-      <HintPath>$(BannerlordPath)\Modules\ModLib\bin\Win64_Shipping_Client\ModLib.dll</HintPath>
+    <Reference Include="Bannerlord.Harmony">
+      <HintPath>$(BannerlordPath)\Modules\Bannerlord.Harmony\bin\Win64_Shipping_Client\Bannerlord.Harmony.dll</HintPath>
     </Reference>
-    <Reference Include="ModLib.Patches">
-      <HintPath>$(BannerlordPath)\Modules\ModLib\bin\Win64_Shipping_Client\ModLib.Patches.dll</HintPath>
+    <Reference Include="0Harmony">
+      <HintPath>$(BannerlordPath)\Modules\Bannerlord.Harmony\bin\Win64_Shipping_Client\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="SandBox">
       <HintPath>$(BannerlordPath)\Modules\SandBox\bin\Win64_Shipping_Client\SandBox.dll</HintPath>
@@ -218,7 +218,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Lib.Harmony" Version="2.0.0.9" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers">
       <Version>2.9.6</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -226,6 +225,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExceptionExtensionMethods.cs" />
     <Compile Include="DailyTroopExperienceTweak.cs" />
     <Compile Include="DismembermentMissionBehaviour.cs" />
     <Compile Include="GlobalSuppressions.cs" />
@@ -249,6 +249,7 @@
     <Compile Include="Patches\TournamentVMPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="SmeltingHelper.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Patches\TournamentBehaviorPatches.cs" />
     <Compile Include="TweakedCharacterDevelopmentModel.cs" />
@@ -281,8 +282,6 @@
     </ItemGroup>
     <Copy SourceFiles="@(_ReadMe)" DestinationFolder="$(MOD_FOLDER)" />
     <Copy SourceFiles="@(_LICENSE)" DestinationFolder="$(MOD_FOLDER)" />
-    <Copy SourceFiles="$(TargetDir)\0Harmony.dll" DestinationFolder="$(MOD_FOLDER)\bin\Win64_Shipping_Client\" />
-    <Copy SourceFiles="$(TargetDir)\ModLib.Definitions.dll" DestinationFolder="$(MOD_FOLDER)\bin\Win64_Shipping_Client\" />
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(MOD_FOLDER)\bin\Win64_Shipping_Client\" />
     <Copy SourceFiles="$(ProjectDir)\SubModule.xml" DestinationFolder="$(MOD_FOLDER)" />
   </Target>

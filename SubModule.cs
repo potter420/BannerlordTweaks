@@ -10,6 +10,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
+
 namespace BannerlordTweaks
 {
     public class SubModule : MBSubModuleBase
@@ -25,8 +26,8 @@ namespace BannerlordTweaks
                 var harmony = new Harmony("mod.bannerlord.mipen");
                 harmony.PatchAll();
 
-                if (Settings.Instance.BattleSizeTweakEnabled)
-                    BannerlordConfig.BattleSize = Settings.Instance.BattleSize;
+                /*if (Settings.Instance.BattleSizeTweakEnabled)
+                    BannerlordConfig.BattleSize = Settings.Instance.BattleSize;*/
             }
             catch (Exception ex)
             {
@@ -110,5 +111,6 @@ namespace BannerlordTweaks
             //    mission?.AddMissionBehaviour(new DismembermentMissionBehaviour());
         }
     }
+    
 }
 
